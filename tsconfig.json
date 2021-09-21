@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "ES5",
+        "noImplicitAny": true,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "sourceMap": false,
+        "allowJs": false,
+        "moduleResolution":"Node",
+        "lib": [
+            "ES2015.Promise",
+            "ES2018.Promise",
+            "ES2015"
+        ],
+        // "types": ["node","lodash","react"]
+    },
+    // 任何被"files"或"include"指定的文件所引用的文件也会
+    // 被包含进来， A.ts引用了B.ts，因此B.ts不能被排除，
+    // 除非引用它的A.ts在"exclude"列表中
+    // "files": [
+    //     "*.ts"
+    // ],
+    "exclude": [
+        "node_modules" // 默认会被排除
+    ],
+    // "include": [
+    //     "*.ts"
+    // ]
+}
