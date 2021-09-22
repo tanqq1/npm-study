@@ -1,11 +1,13 @@
 import { useCallback, useRef } from 'react'
 import { debounce } from 'lodash'
 
-export interface DebouncedState<T extends (...args: any[]) => ReturnType<T>> {
-  (...args: Parameters<T>): ReturnType<T> | undefined
-}
+// export interface DebouncedState<T extends (pushData: T[]) => ReturnType<T[]>> {
+//   (...args: Parameters<T>): ReturnType<T[]> | []
+// }
 
-interface debounceOptions {
+type debounceBack<T> = (pushData: T) => void
+
+interface DebounceOptions {
   wait?: number
   leading?: boolean
   maxWait?: number
@@ -17,16 +19,17 @@ interface debounceOptions {
  * 缓存推送数据, 使用debounce执行callback,并将缓存数据传给回调函数
  * @export
  * @template T
- * @param {(a: T[]) => void} callback
- * @param {debounceOptions} debounceOptions debounce options params
- * @param {(a: T) => any} handler 实时处理推送数据的函数
+ * @params {Function} callback
+ * @params {DebounceOptions} options  debounce options params
+ * @params {Function} handler 实时处理推送数据的函数
  * @returns return a debounced callback
  */
 export default function useDebounceCache<T>(
   callback: (a: T[]) => void,
-  options?: debounceOptions,
+  options?: DebounceOptions,
   handler?: (a: T) => any
-): DebouncedState<any> {
+): debounceBack<T> {
+// ): DebouncedState<any> {
   const cacheData = useRef<T[]>([])
 
   const wait = options?.wait ?? 500
@@ -41,7 +44,7 @@ export default function useDebounceCache<T>(
     [callback]
   )
 
-  //add debounce func
+  // add debounce func
   const onDebouncePushData = useCallback(
     debounce(clearCacheCall, wait, options ?? { maxWait: 2000 }),
     [clearCacheCall]

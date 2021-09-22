@@ -1,15 +1,15 @@
 {
   "name": "tanqq-npm-init",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "create a npm packages",
-  "main": "./lib/index.js",
+  "main": "./dist/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
-    "start":"tsc -w",
-    "build":"tsc",
+    "start": "tsc -w",
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
-     "lint": "tslint -p tsconfig.json"
+    "lint": "tslint -p tsconfig.json"
   },
   "author": "tanqq",
   "license": "ISC",
@@ -22,6 +22,8 @@
     "@types/react": "^17.0.0"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.173",
+    "@types/react": "^17.0.24",
     "prettier": "^2.4.1",
     "tslint": "^6.1.3",
     "tslint-config-prettier": "^1.18.0"

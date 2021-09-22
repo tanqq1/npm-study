@@ -1,19 +1,39 @@
 {
     "compilerOptions": {
-        "module": "commonjs",
-        "target": "ES5",
+        "baseUrl": ".",
+        "strict": true,
+        "experimentalDecorators": true,
+        "forceConsistentCasingInFileNames": true,
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "downlevelIteration": true,
+        "isolatedModules": true,
         "noImplicitAny": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "allowJs": true,
+        "target": "es5",
+        "module": "commonjs",
+        "declaration": true,
+        "declarationDir": "types",
+        "typeRoots": ["types","./node_modules/@types"],
+        "lib": [
+            "dom",
+            "dom.iterable",
+            "esnext"
+        ],
+        "jsx": "react",
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
         "removeComments": true,
         "preserveConstEnums": true,
         "sourceMap": false,
-        "allowJs": false,
-        "moduleResolution": "Node",
-        "outDir": "./lib",
-        "lib": [
-            "ES2015.Promise",
-            "ES2018.Promise",
-            "ES2015"
-        ],
+        "outDir": "./dist",
+        // "lib": [
+        //     "ES2015.Promise",
+        //     "ES2018.Promise",
+        //     "ES2015"
+        // ],
         // "types": ["node","lodash","react"]
     },
     // 任何被"files"或"include"指定的文件所引用的文件也会
