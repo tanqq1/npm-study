@@ -1,0 +1,12 @@
+#  打包到NPM 需要忽略打包的文件
+/.git/
+/.vscode/
+/node_modules/
+.gitignore
+.npmignore
+.prettierrc
+.editorconfig
+tslint.json
+tsconfig.json
+note.md
+*.log

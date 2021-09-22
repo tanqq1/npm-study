@@ -3,9 +3,13 @@
   "version": "1.0.2",
   "description": "create a npm packages",
   "main": "./lib/index.js",
-  "types":"./lib/index.d.ts",
+  "types": "./lib/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start":"tsc -w",
+    "build":"tsc",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+     "lint": "tslint -p tsconfig.json"
   },
   "author": "tanqq",
   "license": "ISC",
@@ -13,8 +17,13 @@
     "lodash": "^4.17.20",
     "react": "^16.14.0"
   },
-  "devdependencies":{
+  "devdependencies": {
     "@types/lodash": "^4.14.165",
     "@types/react": "^17.0.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.4.1",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0"
   }
 }
